@@ -19,7 +19,7 @@ describe 'orientdb::structure' do
 
     it 'with the right ownership' do
       directory = runner.directory(installation_directory)
-      expect(directory).to be_owned_by(default_user_name)
+      expect(directory).to be_owned_by(default_user_name, default_user_name)
     end
   end
 end

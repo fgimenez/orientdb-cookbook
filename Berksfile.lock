@@ -1,4 +1,5 @@
 {
+  "sha": "82ad3f00a8ec75f0e2d0584db9797ff2e3bb7a50",
   "sources": {
     "orientdb": {
       "path": "."
@@ -7,7 +8,7 @@
       "locked_version": "1.12.0"
     },
     "windows": {
-      "locked_version": "1.9.0"
+      "locked_version": "1.10.0"
     },
     "chef_handler": {
       "locked_version": "1.1.4"
