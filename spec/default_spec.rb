@@ -16,8 +16,14 @@ describe 'orientdb::default' do
     expect(runner).to include_recipe('orientdb::user')
   end
 
+=begin
   it 'includes the orientdb::structure recipe' do
     expect(runner).to include_recipe('orientdb::structure')
+  end
+=end
+
+  it 'includes the orientdb::dependencies recipe' do
+    expect(runner).to include_recipe('orientdb::dependencies')
   end
 
   it 'includes the orientdb::resources recipe' do
