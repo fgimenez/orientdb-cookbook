@@ -30,12 +30,12 @@ describe 'orientdb::default' do
     expect(runner).to include_recipe('orientdb::resources')
   end
 
-  it 'includes the orientdb::scripts recipe' do
-    expect(runner).to include_recipe('orientdb::scripts')
-  end
-
   it 'includes the orientdb::configuration recipe' do
     expect(runner).to include_recipe('orientdb::configuration')
+  end
+
+  it 'includes the orientdb::scripts recipe' do
+    expect(runner).to include_recipe('orientdb::scripts')
   end
 
 end
