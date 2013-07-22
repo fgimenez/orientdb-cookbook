@@ -1,0 +1,6 @@
+language: ruby
+rvm:
+  - 1.9.3-p392
+install: bundle install
+before_script: bundle exec berks install
+script: bundle exec strainer test

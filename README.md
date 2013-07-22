@@ -1,45 +1,22 @@
+[![Build Status](https://travis-ci.org/fgimenez/orientdb-cookbook.png)](https://travis-ci.org/fgimenez/orientdb-cookbook)
+
 orientdb Cookbook
 =================
-TODO: Enter the cookbook description here.
-
-e.g.
-This cookbook makes your favorite breakfast sandwhich.
+This cookbook installs OrientDB (right now in single node mode)
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
 
-e.g.
-#### packages
-- `toaster` - orientdb needs toaster to brown your bagel.
+It has been tested on Ubuntu 12.04, but should work on any platform where Java 1.6 works. 
+
+The only dependency is with opscode's java cookbook. For testing the cookbook with Vagrant you need the vagrant-berkshelf plugin also
 
 Attributes
 ----------
 TODO: List you cookbook attributes here.
 
-e.g.
-#### orientdb::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['orientdb']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
-
 Usage
 -----
-#### orientdb::default
-TODO: Write usage instructions for each cookbook.
-
-e.g.
 Just include `orientdb` in your node's `run_list`:
 
 ```json
@@ -51,18 +28,37 @@ Just include `orientdb` in your node's `run_list`:
 }
 ```
 
+Running the tests
+-----------------
+
+This is done thanks to berkshelf and strainer:
+
+    $ bundle
+    $ bundle exec berks install
+    $ bundle exec strainer test
+
+Vagrant usage
+-------------
+
+There is a Vagrantfile included in the repo, you can try the cookbook by:
+
+    $ vagrant plugin install vagrant-berkshelf
+    $ vagrant up
+
+Then the server will be listening in its default ports in your local machine (2424 for binary access, 2480 for web studio)
+
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
 4. Write tests for your change (if applicable)
 5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
+6. Submit a Pull Request
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+MIT License
+
+Authors: Federico Gimenez Nieto <federico.gimenez@gmail.com>
