@@ -66,10 +66,10 @@
 	</network>
 	<storages>
 		<!-- Default in-memory storage. Data are not saved permanently. -->
-		<storage path="memory:temp" name="temp" userName="<%=db_user%>" userPassword="<%db_password%>" loaded-at-startup="true" />
+		<storage path="memory:temp" name="temp" userName="<%=@db_user%>" userPassword="<%=@db_password%>" loaded-at-startup="true" />
 	</storages>
 	<users>
-    <user name="<%=db_user%>" password="<%=db_password%>" resources="*"/>
+    <user name="<%=@db_user%>" password="<%=@db_password%>" resources="*"/>
 	</users>
 	<properties>
 		<!-- DATABASE POOL: size min/max -->

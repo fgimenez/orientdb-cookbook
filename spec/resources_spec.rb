@@ -29,19 +29,28 @@ describe 'orientdb::resources' do
         with(source: tarball_url)
     end
 
+    it 'removes previous installations' do
+      expect(runner).to delete_directory("#{base_installation_directory}/orientdb-#{flavour}-#{version}")
+    end
+
     it 'extracts it' do
       expect(runner).to execute_command("unzip #{destination_file_name}").
-        with(cwd: base_installation_directory, user: user)
+        with(cwd: base_installation_directory, user: nil)
     end
 
     it 'symlinks it' do
       expect(runner).to execute_command("ln -s orientdb-#{flavour}-#{version} orientdb").
-        with(cwd: base_installation_directory, user: user)
+        with(cwd: base_installation_directory, user: nil)
     end
 
     it 'makes the bin directory executable' do
       expect(runner).to execute_command("chmod -R 0775 bin").
         with(cwd: installation_directory)
+    end
+
+    it 'changes its ownership' do
+      expect(runner).to execute_command("chown -R #{user}:#{user} .").
+        with(cwd: installation_directory, user: nil)
     end
 
     it 'removes the tarball' do
