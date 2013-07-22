@@ -12,3 +12,4 @@ default[:orientdb][:main_config_file] = "#{default[:orientdb][:installation_dire
 
 default[:orientdb][:db_user] = 'admin'
 default[:orientdb][:db_password] = 'admin'
+
