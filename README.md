@@ -9,7 +9,7 @@ Requirements
 
 It has been tested on Ubuntu 12.04, but should work on any platform where Java 1.6 works. 
 
-The only dependency is with opscode's java cookbook. For testing the cookbook with Vagrant you need the vagrant-berkshelf plugin also
+The only dependency is with opscode's java cookbook. For testing the cookbook with Vagrant you need the vagrant-berkshelf and vagrant-omnibus plugins also (hopefully this will be handled by vundler soon...)
 
 Attributes
 ----------
