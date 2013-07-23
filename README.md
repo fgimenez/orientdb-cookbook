@@ -43,6 +43,7 @@ Vagrant usage
 There is a Vagrantfile included in the repo, you can try the cookbook by:
 
     $ vagrant plugin install vagrant-berkshelf
+    $ vagrant plugin install vagrant-omnibus
     $ vagrant up
 
 Then the server will be listening in its default ports in your local machine (2424 for binary access, 2480 for web studio)
