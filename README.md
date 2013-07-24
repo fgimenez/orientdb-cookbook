@@ -9,11 +9,27 @@ Requirements
 
 It has been tested on Ubuntu 12.04, but should work on any platform where Java 1.6 works. 
 
-The only dependency is with opscode's java and apt cookbook. For testing the cookbook with Vagrant you need the vagrant-berkshelf and vagrant-omnibus plugins also (hopefully this will be handled by vundler soon...)
+The java and apt cookbooks are needed, as usual may be handled with Berkshelf. 
+
+For testing the cookbook with Vagrant 1.2+ you need to install the plugins first. This dependencies are managed with Bindler:
+
+    $ vagrant plugin bundle
+
+More on blindler here https://github.com/fgrehm/bindler
 
 Attributes
 ----------
-TODO: List you cookbook attributes here.
+* node[:orientdb][:user][:id]: User name
+* node[:orientdb][:version]: Database version
+* node[:orientdb][:flavour]: Flavour to be installed, document or graphed
+* node[:orientdb][:base_tarball_url]: Partial location of the tarball url, flavour, version and extension removed
+* node[:orientdb][:base_installation_directory]: Base install dir
+* node[:orientdb][:installation_directory]: Absolute install dir, dependent on the base install dir
+* node[:orientdb][:main_config_file]: Server config file name
+* node[:orientdb][:db_user]: Admin DB user
+* node[:orientdb][:db_password]: Admin DB password
+* node[:orientdb][:binary_port]: Port for binary access
+* node[:orientdb][:http_port]: Port for HTTP access
 
 Usage
 -----
@@ -40,13 +56,11 @@ This is done thanks to berkshelf and strainer:
 Vagrant usage
 -------------
 
-There is a Vagrantfile included in the repo, you can try the cookbook by:
+There is a Vagrantfile included in the repo, you can try the cookbook by just:
 
-    $ vagrant plugin install vagrant-berkshelf
-    $ vagrant plugin install vagrant-omnibus
     $ vagrant up
 
-Then the server will be listening in its default ports in your local machine (2424 for binary access, 2480 for web studio)
+The Vagrantfile is configured to open the default ports in your local machine (2424 for binary access, 2480 for web studio), remember to change this if you have cahnged the corresponding attributes.
 
 Contributing
 ------------
@@ -54,7 +68,7 @@ Contributing
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write you change
-4. Write tests for your change (if applicable)
+4. Write tests for your change
 5. Run the tests, ensuring they all pass
 6. Submit a Pull Request
 
