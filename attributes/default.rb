@@ -1,6 +1,6 @@
 default[:orientdb][:user][:id] = 'orientdb'
 
-default[:orientdb][:version] = '1.4.1'
+default[:orientdb][:version] = '1.5.1'
 default[:orientdb][:flavour] = 'graphed'
 
 default[:orientdb][:base_tarball_url] = 'https://s3.amazonaws.com/orientdb/releases/orientdb'
