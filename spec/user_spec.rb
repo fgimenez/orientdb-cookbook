@@ -13,9 +13,10 @@ describe 'orientdb::user' do
   end
 
   it 'creates the default user' do
-    expect(runner).to create_user(default_user_name)#.
-      #with(shell: 'bin/false', system: true, 
-      #     home: installation_directory)
+    user = runner.user(default_user_name)
+    expect(user.shell).to eq('/bin/false')
+    expect(user.home).to eq(installation_directory)
+    expect(user.system).to be_true
   end
 
 end

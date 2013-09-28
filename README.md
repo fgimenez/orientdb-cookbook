@@ -11,11 +11,6 @@ It has been tested on Ubuntu 12.04, but should work on any platform where Java 1
 
 The java and apt cookbooks are needed, as usual may be handled with Berkshelf. 
 
-For testing the cookbook with Vagrant 1.2+ you need to install the plugins first. This dependencies are managed with Bindler:
-
-    $ vagrant plugin bundle
-
-More on blindler here https://github.com/fgrehm/bindler
 
 Attributes
 ----------
@@ -56,11 +51,11 @@ This is done thanks to berkshelf and strainer:
 Vagrant usage
 -------------
 
-There is a Vagrantfile included in the repo, you can try the cookbook by just:
+For testing the cookbook with Vagrant 1.2+ you just have to execute bootstrap.sh:
 
-    $ vagrant up
+    $ bootstrap.sh
 
-The Vagrantfile is configured to open the default ports in your local machine (2424 for binary access, 2480 for web studio), remember to change this if you have cahnged the corresponding attributes.
+It installs bindler, installs the required Vagrant plugins and launchs the machine. The Vagrantfile is configured to open the default ports in your local machine (2424 for binary access, 2480 for web studio), remember to change this if you have modified the corresponding attributes.
 
 Contributing
 ------------

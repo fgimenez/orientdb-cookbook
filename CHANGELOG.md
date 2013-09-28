@@ -3,7 +3,6 @@
 This file is used to list changes made in each version of orientdb.
 
 ## 0.1.0:
-
 * Initial release of orientdb
 
 - - -
