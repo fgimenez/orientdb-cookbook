@@ -12,11 +12,15 @@ describe 'orientdb::user' do
     runner.converge('orientdb::user')
   end
 
+  it 'creates the default group' do
+    expect(runner).to create_group(default_user_name)
+  end
+
   it 'creates the default user' do
     user = runner.user(default_user_name)
-    expect(user.shell).to eq('/bin/false')
+    expect(user.shell).to eq('/bin/bash')
     expect(user.home).to eq(installation_directory)
-    expect(user.system).to be_true
+    expect(user.gid).to eq(default_user_name)
   end
 
 end
