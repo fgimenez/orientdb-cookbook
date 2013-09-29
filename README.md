@@ -23,8 +23,6 @@ Attributes
 * node[:orientdb][:main_config_file]: Server config file name
 * node[:orientdb][:db_user]: Admin DB user
 * node[:orientdb][:db_password]: Admin DB password
-* node[:orientdb][:binary_port]: Port for binary access
-* node[:orientdb][:http_port]: Port for HTTP access
 
 Usage
 -----
@@ -55,7 +53,7 @@ For testing the cookbook with Vagrant 1.2+ you just have to execute bootstrap.sh
 
     $ bootstrap.sh
 
-It installs bindler, installs the required Vagrant plugins and launchs the machine. The Vagrantfile is configured to open the default ports in your local machine (2424 for binary access, 2480 for web studio), remember to change this if you have modified the corresponding attributes.
+It installs bindler, installs the required Vagrant plugins and launchs the machine. 
 
 Contributing
 ------------
