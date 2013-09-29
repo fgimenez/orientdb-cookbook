@@ -14,6 +14,3 @@ default[:orientdb][:init_script] = "/etc/init.d/orientdb"
 
 default[:orientdb][:db_user] = 'admin'
 default[:orientdb][:db_password] = 'admin'
-
-default[:orientdb][:binary_port] = 2424
-default[:orientdb][:http_port] = 2480

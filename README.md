@@ -20,7 +20,9 @@ Attributes
 * node[:orientdb][:base_tarball_url]: Partial location of the tarball url, flavour, version and extension removed
 * node[:orientdb][:base_installation_directory]: Base install dir
 * node[:orientdb][:installation_directory]: Absolute install dir, dependent on the base install dir
-* node[:orientdb][:main_config_file]: Server config file name
+* node[:orientdb][:default_config_file]: Full path to tarball's server config file name
+* node[:orientdb][:default_init_script]: Full path to tarball's init script
+* node[:orientdb][:init_script]: Full path to actual init script
 * node[:orientdb][:db_user]: Admin DB user
 * node[:orientdb][:db_password]: Admin DB password
 
