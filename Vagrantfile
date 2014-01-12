@@ -8,11 +8,20 @@ Vagrant.configure("2") do |config|
   # Ensure Chef is installed for provisioning
   config.omnibus.chef_version = :latest
 
-  config.vm.network :forwarded_port, guest: 2480, host: 2480
-  config.vm.network :forwarded_port, guest: 2424, host: 2424
+  config.vm.network :private_network, ip: "33.33.33.33"
+
+  config.berkshelf.enabled = true
+  
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  
+  config.vm.hostname = 'orientdb.local'
   
   config.vm.provision :chef_solo do |chef|
-    chef.add_recipe "orientdb"
+    chef.json = {
+      run_list: ['recipe[orientdb]']
+    }
   end
 
 end

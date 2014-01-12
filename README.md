@@ -14,17 +14,17 @@ The java and apt cookbooks are needed, as usual may be handled with Berkshelf.
 
 Attributes
 ----------
-* node[:orientdb][:user][:id]: User name
-* node[:orientdb][:version]: Database version
-* node[:orientdb][:flavour]: Flavour to be installed, document or graphed
-* node[:orientdb][:base_tarball_url]: Partial location of the tarball url, flavour, version and extension removed
-* node[:orientdb][:base_installation_directory]: Base install dir
-* node[:orientdb][:installation_directory]: Absolute install dir, dependent on the base install dir
-* node[:orientdb][:default_config_file]: Full path to tarball's server config file name
-* node[:orientdb][:default_init_script]: Full path to tarball's init script
-* node[:orientdb][:init_script]: Full path to actual init script
-* node[:orientdb][:db_user]: Admin DB user
-* node[:orientdb][:db_password]: Admin DB password
+* node['orientdb']['user']['id']: User name
+* node['orientdb']['version']: Database version
+* node['orientdb']['flavour']: Flavour to be installed, now only community
+* node['orientdb']['base_tarball_url']: Partial location of the tarball url, flavour, version and extension removed
+* node['orientdb']['base_installation_directory']: Base install dir
+* node['orientdb']['installation_directory']: Absolute install dir, dependent on the base install dir
+* node['orientdb']['default_config_file']: Full path to tarball's server config file name
+* node['orientdb']['default_init_script']: Full path to tarball's init script
+* node['orientdb']['init_script']: Full path to actual init script
+* node['orientdb']['db_user']: Admin DB user
+* node['orientdb']['db_password']: Admin DB password
 
 Usage
 -----
@@ -55,7 +55,7 @@ For testing the cookbook with Vagrant 1.2+ you just have to execute bootstrap.sh
 
     $ bootstrap.sh
 
-It installs bindler, installs the required Vagrant plugins and launchs the machine. 
+It installs the required Vagrant plugins and launchs the machine. After the process you have a orientdb instance running in ```orientdb.local``` host, ip 33.33.33.33 (you may need to provide root privileges to allow vagrant-hostmanager do its duty).
 
 Contributing
 ------------
@@ -71,7 +71,7 @@ License and Authors
 -------------------
 MIT License
 
-Authors: Federico Gimenez Nieto <federico.gimenez@gmail.com>
+Authors: Federico Gimenez Nieto <fgimenez@coit.es>
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fgimenez/orientdb-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

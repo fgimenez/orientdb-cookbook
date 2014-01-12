@@ -5,11 +5,11 @@ describe 'orientdb::user' do
   let(:default_user_name) {'username'}
 
   let(:runner) do
-    runner = ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set[:orientdb][:user][:id] = default_user_name
-      node.set[:orientdb][:installation_directory] = installation_directory
+    runner = ChefSpec::Runner.new do |node|
+      node.set[described_cookbook]['user']['id'] = default_user_name
+      node.set[described_cookbook]['installation_directory'] = installation_directory
     end
-    runner.converge('orientdb::user')
+    runner.converge(described_recipe)
   end
 
   it 'creates the default group' do

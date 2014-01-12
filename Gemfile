@@ -1,10 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'foodcritic'
-gem 'chefspec', '1.3.1'
-gem 'rspec'
-gem 'test-kitchen', '~> 1.0.0.alpha.7'
+gem 'rake'
 gem 'berkshelf'
 gem 'strainer'
+gem 'chefspec', '>=3.0.0'
+gem 'foodcritic', '>=3.0.0'
 
-gem 'kitchen-vagrant', :group => :integration

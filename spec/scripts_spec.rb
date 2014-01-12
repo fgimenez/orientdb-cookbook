@@ -7,28 +7,28 @@ describe 'orientdb::scripts' do
   let(:installation_directory) {'installation_directory'}
 
   let(:runner) do
-    runner = ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04') do |node|
-      node.set[:orientdb][:user][:id] = user
-      node.set[:orientdb][:installation_directory] = installation_directory
-      node.set[:orientdb][:default_init_script] = default_init_script
-      node.set[:orientdb][:init_script] = init_script
+    runner = ChefSpec::Runner.new do |node|
+      node.set[described_cookbook]['user']['id'] = user
+      node.set[described_cookbook]['installation_directory'] = installation_directory
+      node.set[described_cookbook]['default_init_script'] = default_init_script
+      node.set[described_cookbook]['init_script'] = init_script
     end
-    runner.converge('orientdb::scripts')
+    runner.converge(described_recipe)
   end
 
   describe 'init script creation' do
     it 'should copy the init script' do
-      expect(runner).to execute_command("cp #{default_init_script} #{init_script}")
+      expect(runner).to run_execute("cp #{default_init_script} #{init_script}")
     end
 
     it 'should have the right content for the db path' do
       expect(runner).
-        to execute_command("sed -i 's#DB_DIR=\".*\"#DB_DIR=\"#{installation_directory}\"#' #{init_script}")
+        to run_execute("sed -i 's#DB_DIR=\".*\"#DB_DIR=\"#{installation_directory}\"#' #{init_script}")
     end
     
     it 'should have the right content for the db user' do
       expect(runner).
-        to execute_command("sed -i 's/DB_USER=\".*\"/DB_USER=\"#{user}\"/' #{init_script}")
+        to run_execute("sed -i 's/DB_USER=\".*\"/DB_USER=\"#{user}\"/' #{init_script}")
     end
 
     it 'should have the right permissions' do
@@ -43,7 +43,7 @@ describe 'orientdb::scripts' do
     end
 
     it 'sets the service to start on boot' do
-      expect(runner).to set_service_to_start_on_boot 'orientdb'
+      expect(runner).to enable_service 'orientdb'
     end
   end
 end

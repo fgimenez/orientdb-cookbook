@@ -1,8 +1,7 @@
 require_relative 'spec_helper'
 
 describe 'orientdb::default' do
-  let(:runner) { ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04').
-    converge('orientdb::default')}
+  let(:runner) { ChefSpec::Runner.new.converge(described_recipe) }
 
   it 'includes the apt recipe' do
     expect(runner).to include_recipe('apt')
@@ -13,29 +12,19 @@ describe 'orientdb::default' do
   end
 
   it 'includes the orientdb::user recipe' do
-    expect(runner).to include_recipe('orientdb::user')
-  end
-
-=begin
-  it 'includes the orientdb::structure recipe' do
-    expect(runner).to include_recipe('orientdb::structure')
-  end
-=end
-
-  it 'includes the orientdb::dependencies recipe' do
-    expect(runner).to include_recipe('orientdb::dependencies')
+    expect(runner).to include_recipe("#{described_cookbook}::user")
   end
 
   it 'includes the orientdb::resources recipe' do
-    expect(runner).to include_recipe('orientdb::resources')
+    expect(runner).to include_recipe("#{described_cookbook}::resources")
   end
 
   it 'includes the orientdb::configuration recipe' do
-    expect(runner).to include_recipe('orientdb::configuration')
+    expect(runner).to include_recipe("#{described_cookbook}::configuration")
   end
 
   it 'includes the orientdb::scripts recipe' do
-    expect(runner).to include_recipe('orientdb::scripts')
+    expect(runner).to include_recipe("#{described_cookbook}::scripts")
   end
 
 end
