@@ -26,19 +26,6 @@ Attributes
 * node['orientdb']['db_user']: Admin DB user
 * node['orientdb']['db_password']: Admin DB password
 
-Usage
------
-Just include `orientdb` in your node's `run_list`:
-
-```json
-{
-  "name":"my_node",
-  "run_list": [
-    "recipe[orientdb]"
-  ]
-}
-```
-
 Running the tests
 -----------------
 
