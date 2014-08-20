@@ -1,7 +1,11 @@
 flavour_version = "#{node['orientdb']['flavour']}-#{node['orientdb']['version']}"
 filename = "#{flavour_version}.tar.gz"
 destination_path = "#{node['orientdb']['base_installation_directory']}/#{filename}"
-resource_url = "#{node['orientdb']['base_tarball_url']}-#{filename}"
+resource_url = if node['orientdb']['tarball_url']
+	node['orientdb']['tarball_url']
+else
+	"#{node['orientdb']['base_tarball_url']}-#{filename}"
+end
 
 remote_file destination_path do
   source resource_url
