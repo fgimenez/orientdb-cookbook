@@ -5,7 +5,7 @@ describe 'orientdb::user' do
   let(:default_user_name) {'username'}
 
   let(:runner) do
-    runner = ChefSpec::Runner.new do |node|
+    runner = ChefSpec::SoloRunner.new do |node|
       node.set[described_cookbook]['user']['id'] = default_user_name
       node.set[described_cookbook]['installation_directory'] = installation_directory
     end

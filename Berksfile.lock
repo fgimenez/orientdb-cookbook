@@ -1,19 +1,11 @@
-{
-  "sources": {
-    "orientdb": {
-      "path": "."
-    },
-    "java": {
-      "locked_version": "1.12.0"
-    },
-    "windows": {
-      "locked_version": "1.10.0"
-    },
-    "chef_handler": {
-      "locked_version": "1.1.4"
-    },
-    "apt": {
-      "locked_version": "1.10.0"
-    }
-  }
-}
+DEPENDENCIES
+  orientdb
+    path: .
+    metadata: true
+
+GRAPH
+  apt (2.6.1)
+  java (1.31.0)
+  orientdb (0.2.0)
+    apt (>= 0.0.0)
+    java (>= 0.0.0)

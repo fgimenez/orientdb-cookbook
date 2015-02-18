@@ -7,7 +7,7 @@ describe 'orientdb::scripts' do
   let(:installation_directory) {'installation_directory'}
 
   let(:runner) do
-    runner = ChefSpec::Runner.new do |node|
+    runner = ChefSpec::SoloRunner.new do |node|
       node.set[described_cookbook]['user']['id'] = user
       node.set[described_cookbook]['installation_directory'] = installation_directory
       node.set[described_cookbook]['default_init_script'] = default_init_script

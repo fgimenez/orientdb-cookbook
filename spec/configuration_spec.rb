@@ -7,7 +7,7 @@ describe 'orientdb::configuration' do
   let(:config_file) {'config_file'}
 
   let(:runner) do
-    runner = ChefSpec::Runner.new do |node|
+    runner = ChefSpec::SoloRunner.new do |node|
       node.set[described_cookbook]['default_config_file'] = config_file
       node.set[described_cookbook]['db_user'] = db_user
       node.set[described_cookbook]['db_password'] = db_password
