@@ -12,7 +12,7 @@ describe 'orientdb::resources' do
   let(:user) {'user'}
   
   let(:runner) do
-    runner = ChefSpec::Runner.new do |node|
+    runner = ChefSpec::SoloRunner.new do |node|
       node.set[described_cookbook]['base_installation_directory'] = base_installation_directory
       node.set[described_cookbook]['installation_directory'] = installation_directory
       node.set[described_cookbook]['version'] = version

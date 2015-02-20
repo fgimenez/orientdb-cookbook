@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 describe 'orientdb::default' do
-  let(:runner) { ChefSpec::Runner.new.converge(described_recipe) }
+  let(:runner) { ChefSpec::SoloRunner.new.converge(described_recipe) }
 
   it 'includes the apt recipe' do
     expect(runner).to include_recipe('apt')

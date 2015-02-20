@@ -10,4 +10,4 @@ end
 
 at_exit { ChefSpec::Coverage.report! }
 
-ChefSpec::Coverage.filters << File.expand_path('../../', __FILE__)
+#ChefSpec::Coverage.filters << File.expand_path('../../', __FILE__)
