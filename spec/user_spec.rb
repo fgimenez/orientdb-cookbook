@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-
 describe 'orientdb::user' do
   let(:installation_directory) {'dir'}
   let(:default_user_name) {'username'}

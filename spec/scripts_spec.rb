@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-
 describe 'orientdb::scripts' do
   let(:default_init_script) {'/opt/orientdb/bin/orientdb'}
   let(:init_script) {'/etc/init.d/orientdb'}

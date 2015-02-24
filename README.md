@@ -31,9 +31,8 @@ Running the tests
 
 This is done thanks to berkshelf and strainer:
 
-    $ bundle
-    $ bundle exec berks install
-    $ bundle exec strainer test
+    $ bundle install
+    $ bundle exec rake
 
 Vagrant usage
 -------------

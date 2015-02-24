@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-
 describe 'orientdb::resources' do
   let(:base_installation_directory) {'dir'}
   let(:installation_directory) {'dir/orientdb'}
