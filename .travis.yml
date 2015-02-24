@@ -1,5 +1,5 @@
 language: ruby
 rvm:
   - 2.2.0
-install: bundle install --path=.bundle --jobs 1 --retry 3 --verbose
+install: mkdir -p .bundle && bundle install --path=.bundle --jobs 1 --retry 3 --verbose
 script: bundle exec rake
