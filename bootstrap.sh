@@ -1,8 +1,10 @@
 #!/bin/bash
 vagrant plugin install vagrant-omnibus
-vagrant plugin install vagrant-berkshelf
 vagrant plugin install vagrant-hostmanager
 
-vagrant destroy
+bundle install --path=.bundle
+rm -rf ./berks-cookbooks && bundle exec berks vendor
+
+vagrant destroy --force
 vagrant up --provision
 

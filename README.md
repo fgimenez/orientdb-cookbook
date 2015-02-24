@@ -60,6 +60,3 @@ MIT License
 
 Authors: Federico Gimenez Nieto <fgimenez@coit.es>
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fgimenez/orientdb-cookbook/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

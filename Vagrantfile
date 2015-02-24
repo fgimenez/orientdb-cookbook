@@ -10,8 +10,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :private_network, ip: "33.33.33.33"
 
-  config.berkshelf.enabled = true
-  
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
   config.hostmanager.ignore_private_ip = false
@@ -19,6 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = 'orientdb.local'
   
   config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = './berks-cookbooks'
     chef.json = {
       run_list: ['recipe[orientdb]']
     }
