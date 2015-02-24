@@ -2,3 +2,5 @@
 .vagrant
 .kitchen
 .ruby-*
+.bundle
+berks-cookbooks

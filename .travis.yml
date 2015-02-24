@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-  - 2.1.0
-install: bundle install
-before_script: bundle exec berks install
-script: bundle exec strainer test
+  - 2.2.0
+install: bundle install --path=.bundle --jobs 1 --retry 3 --verbose
+script: bundle exec rake

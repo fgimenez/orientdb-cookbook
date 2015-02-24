@@ -1,4 +1,6 @@
 require 'chefspec'
+require 'chefspec/berkshelf'
+require 'chef/application'
 
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].sort.each {|f| require f}
 
