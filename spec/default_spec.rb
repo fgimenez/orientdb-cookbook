@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-
 describe 'orientdb::default' do
   let(:runner) { ChefSpec::SoloRunner.new.converge(described_recipe) }
 

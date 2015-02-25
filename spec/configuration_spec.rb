@@ -1,5 +1,3 @@
-require_relative 'spec_helper'
-
 describe 'orientdb::configuration' do
   let(:db_user) {'db_user'}
   let(:db_password) {'db_password'}

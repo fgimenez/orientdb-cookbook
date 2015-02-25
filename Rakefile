@@ -1,4 +1,4 @@
-task default: ["test"]
+task default: ["test", "clean"]
 
 task :test => [:lint, :unit]
 
