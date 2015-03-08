@@ -4,4 +4,4 @@ gem 'rake'
 gem 'berkshelf'
 gem 'chefspec'
 gem 'foodcritic'
-
+gem 'stove'

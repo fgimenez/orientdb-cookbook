@@ -29,7 +29,7 @@ Attributes
 Running the tests
 -----------------
 
-This is done thanks to berkshelf and strainer:
+Just execute the default rake task:
 
     $ bundle install
     $ bundle exec rake
