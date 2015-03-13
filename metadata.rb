@@ -12,3 +12,4 @@ end
 
 depends 'java'
 depends 'apt'
+depends 'tar'

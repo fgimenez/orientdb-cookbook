@@ -1,24 +1,20 @@
 describe 'orientdb::user' do
-  let(:installation_directory) {'dir'}
-  let(:default_user_name) {'username'}
-
   let(:runner) do
     runner = ChefSpec::SoloRunner.new do |node|
-      node.set[described_cookbook]['user']['id'] = default_user_name
-      node.set[described_cookbook]['installation_directory'] = installation_directory
+      node.set[described_cookbook]['user']['id'] = $user_id
+      node.set[described_cookbook]['installation_directory'] = $installation_directory
     end
     runner.converge(described_recipe)
   end
 
-  it 'creates the default group' do
-    expect(runner).to create_group(default_user_name)
+  it 'creates the group' do
+    expect(runner).to create_group($user_id)
   end
 
-  it 'creates the default user' do
-    user = runner.user(default_user_name)
-    expect(user.shell).to eq('/bin/bash')
-    expect(user.home).to eq(installation_directory)
-    expect(user.gid).to eq(default_user_name)
+  it 'creates the user' do
+    expect(runner).to create_user($user_id).with(
+      shell: '/bin/bash',
+      home:  $installation_directory,
+      gid:   $user_id)
   end
-
 end

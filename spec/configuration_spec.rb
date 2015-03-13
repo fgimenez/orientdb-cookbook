@@ -1,28 +1,30 @@
 describe 'orientdb::configuration' do
-  let(:db_user) {'db_user'}
-  let(:db_password) {'db_password'}
-  let(:version) {'1.4.1'}
-  let(:config_file) {'config_file'}
-
   let(:runner) do
     runner = ChefSpec::SoloRunner.new do |node|
-      node.set[described_cookbook]['default_config_file'] = config_file
-      node.set[described_cookbook]['db_user'] = db_user
-      node.set[described_cookbook]['db_password'] = db_password
-      node.set[described_cookbook]['version'] = version
+      node.set['orientdb']['installation_directory'] = $installation_directory
+      node.set['orientdb']['user']['id'] = $user_id
     end
     runner.converge(described_recipe)
   end
 
-  describe 'configuration file' do
-    it 'should have the right content for the db user' do
-      expect(runner).
-        to run_execute("sed -i 's#<storages>#<storages><storage path=\"memory:temp\" name=\"temp\" userName=\"#{db_user}\" userPassword=\"#{db_password}\" loaded-at-startup=\"true\" \/>#' #{config_file}")
+  describe 'configuration files' do
+    it 'creates default-distributed-db-config.json' do
+      expect(runner).to create_template("#{$installation_directory}/config/default-distributed-db-config.json").with(
+        owner: $user_id,
+        group: $user_id
+      )
     end
-
-    it 'should have the right content for the in memory user' do
-      expect(runner).
-        to run_execute("sed -i 's#<users>#<users><user name=\"#{db_user}\" password=\"#{db_password}\" resources=\"*\"\/>#' #{config_file}")
+    it 'creates hazelcast.xml' do
+      expect(runner).to create_template("#{$installation_directory}/config/hazelcast.xml").with(
+        owner: $user_id,
+        group: $user_id
+      )
+    end
+    it 'creates orientdb-server-config.xml' do
+      expect(runner).to create_template("#{$installation_directory}/config/orientdb-server-config.xml").with(
+        owner: $user_id,
+        group: $user_id
+      )
     end
   end
 end
