@@ -29,10 +29,14 @@ Attributes
 Running the tests
 -----------------
 
-Just execute the default rake task:
+For the unit tests just execute the default rake task:
 
     $ bundle install
     $ bundle exec rake
+
+Run the integration tests through test kitchen:
+
+    $ bundle exec kitchen test
 
 Vagrant usage
 -------------
