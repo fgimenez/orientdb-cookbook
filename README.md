@@ -34,7 +34,7 @@ For the unit tests just execute the default rake task:
     $ bundle install
     $ bundle exec rake
 
-Run the integration tests through test kitchen:
+Run the integration tests through test kitchen (Vagrant and VirtualBox are needed for this):
 
     $ bundle exec kitchen test
 
