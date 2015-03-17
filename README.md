@@ -2,7 +2,7 @@
 
 OrientDB Cookbook
 =================
-This cookbook installs OrientDB (right now in single node mode)
+This cookbook installs OrientDB
 
 Requirements
 ------------
@@ -12,19 +12,36 @@ It has been tested on Ubuntu 12.04, but should work on any platform where Java 1
 The java and apt cookbooks are needed, as usual may be handled with Berkshelf. 
 
 
-Attributes
-----------
-* node['orientdb']['user']['id']: User name
-* node['orientdb']['version']: Database version
-* node['orientdb']['flavour']: Flavour to be installed, now only community
-* node['orientdb']['base_tarball_url']: Partial location of the tarball url, flavour, version and extension removed
-* node['orientdb']['base_installation_directory']: Base install dir
-* node['orientdb']['installation_directory']: Absolute install dir, dependent on the base install dir
-* node['orientdb']['default_config_file']: Full path to tarball's server config file name
-* node['orientdb']['default_init_script']: Full path to tarball's init script
-* node['orientdb']['init_script']: Full path to actual init script
-* node['orientdb']['db_user']: Admin DB user
-* node['orientdb']['db_password']: Admin DB password
+General Attributes:
+
+|Attribute|Description|Default value|
+|---------|-----------|-------------|
+|`node['orientdb']['user']['id']`|User name|`orientdb`|
+|`node['orientdb']['version']`|Database version|`2.0.3`|
+|`node['orientdb']['flavour']`|Flavour to be installed, now only community|`community`|
+|`node['orientdb']['base_tarball_url']`|Partial location of the tarball url, flavour, version and extension removed|`http://www.orientechnologies.com/download.php?email=unknown@unknown.com&os=linux&file=orientdb`|
+|`node['orientdb']['installation_directory']`|Absolute install dir, dependent on the base install dir|`/opt/orientdb`|
+|`node['orientdb']['default_init_script']`|Full path to tarball's init script|`/opt/orientdb/bin/orientdb.sh`|
+|`node['orientdb']['init_script']`|Full path to actual init script|`/etc/init.d/orientdb`|
+|`node['orientdb']['db_user']`|Admin DB user|`admin`|
+|`node['orientdb']['db_password']`|Admin DB password|`admin`|
+
+Distributed Attributes:
+
+|Attribute|Description|Default value|
+|---------|-----------|-------------|
+|`node['orientdb']['hazelcast']['nodeName']`|Node Name|`{node.name}`|
+|`node['orientdb']['hazelcast']['enabled']`|Enable Hazelcast plugin|`true`|
+|`node['orientdb']['hazelcast']['group']['name']`|Hazelcast group name|`orientdb`|
+|`node['orientdb']['hazelcast']['group']['password']`|Hazelcast group password|`orientdb`|
+|`node['orientdb']['hazelcast']['network']['join']['multicast']['enabled']`|Enable Hazelcast multicast|`orientdb`|
+|`node['orientdb']['hazelcast']['network']['join']['multicast']['group']`|Hazelcast multicast host|`orientdb`|
+|`node['orientdb']['hazelcast']['network']['join']['multicast']['port']`|Hazelcast multicast port|`orientdb`|
+|`node['orientdb']['node_search_criteria']`|Chef Search criteria for locating peers.|Match on hazelcast group name & password (from above)|
+|`node['orientdb']['hazelcast']['network']['join']['tcp-ip']['members']`|Array of hostname:port of peer hazelcast members to populate hazelcast.xml file.|hostname:port list from node_search_criteria (above)|
+|`node['orientdb']['distributed']['clusters']['servers']`|Array of hostnames to populate default-distributed-db-config.json file.|hostname list from node_search_criteria (above)|
+
+
 
 Running the tests
 -----------------
