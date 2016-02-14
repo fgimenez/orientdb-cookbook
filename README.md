@@ -7,9 +7,9 @@ This cookbook installs OrientDB
 Requirements
 ------------
 
-It has been tested on Ubuntu 12.04, but should work on any platform where Java 1.6 works. 
+It has been tested on Ubuntu 12.04, but should work on any platform where Java 1.6 works.
 
-The java and apt cookbooks are needed, as usual may be handled with Berkshelf. 
+The java and apt cookbooks are needed, as usual may be handled with Berkshelf.
 
 
 General Attributes:
@@ -34,11 +34,19 @@ Distributed Attributes:
 |`node['orientdb']['hazelcast']['enabled']`|Enable Hazelcast plugin|`true`|
 |`node['orientdb']['hazelcast']['group']['name']`|Hazelcast group name|`orientdb`|
 |`node['orientdb']['hazelcast']['group']['password']`|Hazelcast group password|`orientdb`|
-|`node['orientdb']['hazelcast']['network']['join']['multicast']['enabled']`|Enable Hazelcast multicast|`orientdb`|
+|`node['orientdb']['hazelcast']['network']['join']['mode']`|Hazelcast mode, one of `multicast`, `tcp-ip` or `aws`|`multicast`|
 |`node['orientdb']['hazelcast']['network']['join']['multicast']['group']`|Hazelcast multicast host|`orientdb`|
 |`node['orientdb']['hazelcast']['network']['join']['multicast']['port']`|Hazelcast multicast port|`orientdb`|
 |`node['orientdb']['node_search_criteria']`|Chef Search criteria for locating peers.|Match on hazelcast group name & password (from above)|
 |`node['orientdb']['hazelcast']['network']['join']['tcp-ip']['members']`|Array of hostname:port of peer hazelcast members to populate hazelcast.xml file.|hostname:port list from node_search_criteria (above)|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['access-key']`|EC2 access key|`my-access-key`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['secret-key']`|EC2 secret key|`my-secret-key`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['region']`|Optional, EC2 region|`us-west-1`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['host-header']`|Optional, EC2 host header. If set region shouldn't be set as it will override this property|`ec2.amazonaws.com`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['security-group-name']`|EC2 security group|`hazelcast-sg`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['tag-key']`|EC2 tag key|`type`|
+|`node['orientdb']['hazelcast']['network']['join']['aws']['tag-value']`|EC2 tag value|`hz-nodes`|
+
 |`node['orientdb']['distributed']['clusters']['servers']`|Array of hostnames to populate default-distributed-db-config.json file.|hostname list from node_search_criteria (above)|
 
 
@@ -79,4 +87,3 @@ License and Authors
 MIT License
 
 Authors: Federico Gimenez Nieto <fgimenez@coit.es>
-

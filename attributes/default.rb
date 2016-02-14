@@ -18,9 +18,19 @@ default['orientdb']['hazelcast']['enabled'] = true
 default['orientdb']['hazelcast']['group']['name'] = 'orientdb'
 default['orientdb']['hazelcast']['group']['password'] = 'orientdb'
 default['orientdb']['hazelcast']['network']['port'] = '2434'
-default['orientdb']['hazelcast']['network']['join']['multicast']['enabled'] = true
+
+default['orientbd']['hazelcast']['network']['join']['mode'] = 'multicast'
 default['orientdb']['hazelcast']['network']['join']['multicast']['group'] = '235.1.1.1'
 default['orientdb']['hazelcast']['network']['join']['multicast']['port'] = '2434'
+
+default['orientdb']['hazelcast']['network']['join']['aws']['access-key'] = 'my-access-key'
+default['orientdb']['hazelcast']['network']['join']['aws']['secret-key'] = 'my-secret-key'
+default['orientdb']['hazelcast']['network']['join']['aws']['region'] = 'us-west-1'
+default['orientdb']['hazelcast']['network']['join']['aws']['host-header'] = 'ec2.amazonaws.com'
+default['orientdb']['hazelcast']['network']['join']['aws']['security-group-name'] = 'hazelcast-sg'
+default['orientdb']['hazelcast']['network']['join']['aws']['tag-key'] = 'type'
+default['orientdb']['hazelcast']['network']['join']['aws']['tag-value'] = 'hz-nodes'
+
 
 default['orientdb']['node_search_criteria'] = "orientdb_hazelcast_group_name:#{node['orientdb']['hazelcast']['group']['name']} AND orientdb_hazelcast_group_password:#{node['orientdb']['hazelcast']['group']['password']}"
 
